@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<title> Yishuang Geng - Portfolio </title>
+	<meta charset = "utf-8">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<!-- font-awesome -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- jQuery library -->
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<!-- Latest compiled JavaScript -->
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+  	<!-- JS part -->
+  	<script type="text/javascript">
+		$(document).ready(function(){
+
+			// a[href^="#"] means selecting all <a> elements that has href attributes starting with "#"
+			// we can also give it an id and select by the id.			
+			$('a[href^="#"]').click(function(event) {
+			// $('a[href^="#"]').on("click", function(event) { works as the same
+				event.preventDefault();
+				// if is already at the position, donot move
+				$('html,body').animate({
+					// this.hash实际上返回的是它本身...
+					scrollTop: $(this.hash).offset().top - 50
+				}, 900); // 900表示scroll的速度，数字越小，scroll越快
+			});
+
+			// need to deal with the header-down butten separately
+			$('#down').click(function() {
+				$('html,body').animate({
+					scrollTop: $('#about').offset().top - 50
+				}, 900);
+			});
+
+			// project cards
+			var projectData = [
+				{
+					title: 'Tribute Page',
+					text: '<p>My first FreeCodeCamp project of Front-End web development. The user is able to demostrate a static webpage of a respectful person.</p> <strong>Code:</strong> HTML5, CSS3<br> <strong>Layout:</strong> Bootstrap<br> <strong>Fonts:</strong> Font-awesome',
+					image: ['images/img_tribute.png'],
+					site: [
+						['CodePen', 'fa-codepen', 'http://codepen.io/yisuang1186/full/jrqxov/']
+						// ['Live Site', 'fa-link', 'http://2am.ninja/quotes/']
+					]
+				},
+				{
+					title: 'Personal Portfolio',
+					text: '<p>My first FreeCodeCamp project of Front-End web development. The user is able to demostrate a static webpage of a respectful person.</p> <strong>Code:</strong> HTML5, CSS3<br> <strong>Layout:</strong> Bootstrap<br> <strong>Fonts:</strong> Font-awesome',
+					image: ['images/img_portfolio.png'],
+					site: [
+						['CodePen', 'fa-codepen', 'http://codepen.io/yisuang1186/full/JKWqJB/']
+						// ['Live Site', 'fa-link', 'http://2am.ninja/quotes/']
+					]
+				},
+				{
+					title: 'TBD',
+					text: '<p>My first FreeCodeCamp project of Front-End web development. The user is able to demostrate a static webpage of a respectful person.</p> <strong>Code:</strong> HTML5, CSS3<br> <strong>Layout:</strong> Bootstrap<br> <strong>Fonts:</strong> Font-awesome',
+					image: ['images/img_placeholder.png'],
+					site: [
+						['CodePen', 'fa-codepen', 'http://codepen.io/yisuang1186/full/JKWqJB/']
+						// ['Live Site', 'fa-link', 'http://2am.ninja/quotes/']
+					]
+				},
+				{
+					title: 'TBD',
+					text: '<p>My first FreeCodeCamp project of Front-End web development. The user is able to demostrate a static webpage of a respectful person.</p> <strong>Code:</strong> HTML5, CSS3<br> <strong>Layout:</strong> Bootstrap<br> <strong>Fonts:</strong> Font-awesome',
+					image: ['images/img_placeholder.png'],
+					site: [
+						['CodePen', 'fa-codepen', 'http://codepen.io/yisuang1186/full/JKWqJB/']
+						// ['Live Site', 'fa-link', 'http://2am.ninja/quotes/']
+					]
+				},
+				{
+					title: 'TBD',
+					text: '<p>My first FreeCodeCamp project of Front-End web development. The user is able to demostrate a static webpage of a respectful person.</p> <strong>Code:</strong> HTML5, CSS3<br> <strong>Layout:</strong> Bootstrap<br> <strong>Fonts:</strong> Font-awesome',
+					image: ['images/img_placeholder.png'],
+					site: [
+						['CodePen', 'fa-codepen', 'http://codepen.io/yisuang1186/full/JKWqJB/']
+						// ['Live Site', 'fa-link', 'http://2am.ninja/quotes/']
+					]
+				}
+
+			];
+
+			// jQuery.extend(verge);
+
+			// implement the cards
+			function showProjects() {
+				var html = '';
+				projectData.forEach(function(project){
+
+					html += '<div class="col-sm-6 col-md-4">';
+					html += '<div class="card effect_click">';
+					html += '<div class="card_front">';
+					// escape the quotation mark " '
+					html += '<a href= "' + project.site[0][2] + '" >'
+					html += '<figure><img class="img-responsive" src="' + project.image[0] + '"style="border-radius: 6px;">';
+					html += '<figcaption class="project-title">';
+					html += project.title;
+      				html += '</figcaption></figure>';
+      				html += '</a>'
+      				html += '</div>';
+
+      				
+      				html += '</div>';
+      				html += '</div>';
+				});
+				$('#theProjects').append(html);
+			}
+
+			showProjects();
+
+			// turn on bootstrap tooltips
+			// $('[data-toggle="tooltip"]').tooltip();
+
+		});
+	</script>
+
+
+
+
+  	<!-- Fonts -->
+  	<link href='https://fonts.googleapis.com/css?family=Lato:100,300italic,400,700,900' rel='stylesheet' type='text/css'>
+  	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900' rel='stylesheet' type='text/css'>
+
+  	<style>
+  		body {
+			padding-top: 00px;
+			padding-bottom: 100px;
+			background-color: #FFF;
+		}
+
+		.navbar {
+			z-index: 9999;
+			background-color: black;
+			box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.7);
+		}
+
+		.tagline1 {
+			font-family: 'lato', sans-serif;
+			font-size: 2.5em;
+			font-weight: 300;
+			font-style: italic;
+			color: #bbb;
+			text-align: left;
+			padding-top: 70px;
+			text-shadow: 1px 1px black;
+		}
+
+		.tagline2 {
+			font-family: 'lato', sans-serif;
+			font-size: 7em;
+			letter-spacing: 7px;
+			line-height: 0.95em;
+			font-weight: 100;
+			color: white;
+			text-align: left;
+			text-shadow: 1px 1px black;
+			padding-top: 10px;
+		}
+
+		.tagline3a, .tagline3b, .tagline3c {
+			font-family: 'courier', sans-serif;
+			font-size: 1.75em;
+			font-style: italic;
+			color: #666;
+			text-align: left;
+			line-height: 1em;
+			text-shadow: 1px 1px black;
+		}
+
+		.tagline3a {
+			padding-top: 50px;
+		}
+
+		.tagline3b {
+			padding-left: 50px;
+		}
+
+		.section-banner {
+			padding-top: 10px;
+			padding-bottom: 50px;
+		}
+
+		.textline1 {
+			font-family: 'Roboto', sans-serif;
+			font-size: 1.3em;
+			line-height: 1.7em;
+			letter-spacing: 0.03em;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		.line {
+			height: 3px;
+			width: 100px;
+			position: relative;
+			top: -12px;
+			display: inline-block;
+			background-color: #999;
+			background-color: rgba(0, 0, 0, 0.54);
+		}
+
+		.section-title {
+			font-family: 'lato', sans-serif;
+			font-size: 3.5em;
+			font-weight: 900;
+			font-style: italic;
+			text-align: center;
+			padding-top: 0px;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: rgba(0, 0, 0, 0.54);
+			text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+		}
+
+		.section-sub-title {
+			font-family: 'lato', sans-serif;
+			font-size: 2em;
+			font-weight: 900;
+			font-style: italic;
+			text-align: center;
+			padding-top: 0px;
+			padding-left: 15px;
+			padding-right: 15px;
+			color: rgba(0, 0, 0, 0.54);
+			text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+		}
+
+		.icon-about {
+			padding-top: 20px;
+			padding-bottom: 25px;
+			width:128px; 
+			height:173px;
+		}
+
+		.max {
+			max-width: 1100px;
+			margin: auto;
+			padding-bottom: 15px;
+		}
+
+		.icon-folio {
+			padding-top: 20px;
+			padding-bottom: 25px;
+			width:300px; 
+			height:345px;
+		}
+
+		.splited-aspects {
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+
+		.highlight {
+			opacity: 0.6;
+		}
+
+		.highlight:hover {
+			background-color: #FFF;
+			opacity: 1;
+		}
+
+		.card {
+			position: relative;
+			width: 340px;
+			height: 385px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 20px;
+			-webkit-perspective: 2000px;
+			-moz-perspective: 2000px;
+			perspective: 2000px;
+			cursor: pointer;
+		}
+
+		.card_front, .card_back {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: inherit;
+			height: inherit;
+			border-style: solid;
+			border-width: 0px;
+			border-radius: 6px;
+			border-color: #666;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			-webkit-transition: -webkit-transform 0.9s ease-in-out;
+			transition: transform 0.9s ease-in-out;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
+		}
+
+		.card_front {
+			background-color: white;
+		}
+
+		.card_back {
+			background-color: #fafffc;
+			-webkit-transform: rotateY(179deg);
+			-ms-transform: rotateY(179deg);
+			transform: rotateY(179deg);
+		}
+
+		.card_front:hover, .card_back:hover {
+			left: -4px;
+			top: -4px;
+			box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.5);
+		}
+
+		.project-title {
+			font-family: 'Lato', sans-serif;
+			font-size: 1.75em;
+			font-weight: 500;
+			padding-top: 4px;
+			padding-bottom: 0px;
+			color: #666;
+			text-align: center;
+		}
+
+		.fa-stack {
+			margin: -2px;
+		}
+
+		.copyright {
+			padding-bottom: 5px;
+			padding-top: 5px;
+			color: #555;
+		}
+
+		.blacktext {
+			color: black;
+		}
+
+		#nav-bar ul li:hover::after {
+			width: 100%;
+		}
+
+		/* 加入特殊动态效果的方法 */
+		#nav-bar ul li::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 3px;
+			background: #607D8B;
+			width: 0;
+			transition: width 0.2s;
+		}
+
+		/* 加入背景图片的方法 */
+		#header {
+			height: 100vh;
+			width: 100vw;
+			background-image: url("images/yg_bw_wide.png");
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			background-color: rgb(28, 28, 28);
+  			color: white;
+		}
+		
+		#about {
+			width: 100vw;
+			/*padding-top: 20px;*/
+			padding-bottom: 50px;
+		}
+
+		#down {
+			position: absolute;
+			opacity: 0.20;
+			left: 48%;
+			bottom: 10%;
+			cursor: pointer;
+			border-radius: 15px;
+		}
+
+		#portfolio {
+			background-color: #eedfcc;
+			padding-bottom: 50px;
+		}
+
+		#footer {
+			width: 100%;
+			text-align: center;
+			color: white;
+			background-color: black;
+		}
+
+		#footer ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+
+
+		#footer ul li {
+			display: inline;
+			padding: 0.4em;
+		}
+
+		#footer a {
+			/*  color: #939393 !important; */
+			color: white !important;
+		}
+
+		footer {
+			width: 100vw;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			padding: 1% 5%;
+			text-align: center;
+			background-color: #000;
+			opacity: 1;
+			z-index: 100;
+			a {
+				font-weight: 500;
+				text-decoration: none;
+			}
+		}
+
+
+  	</style>
+</head>
+
+
+
+
+
+
+
+
+
+
+<!-- the scrollable area -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+	<!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="nav-bar">
+		<div class="container-fluid">
+
+			<div class="navbar-header" style="margin-left:3%;">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<a class="navbar-brand" href="#header"><b>Yishaung Geng</b></a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right" style="margin-right:3%;">
+					<li><a href="#about" class="textline1"><b>About</b></a></li>
+					<li><a href="#portfolio" class="textline1"><b>Portfolio</b></a></li> 
+					<li><a href="#contact" class="textline1"><b>Contact</b></a></li> 
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+
+
+
+
+
+
+
+
+
+
+	<!-- The header -->
+	<header id="header">
+		<div class="container-fluid">
+
+			<div class="row">
+
+				<div class="col-xs-7 col-xs-offset-5 col-sm-6 col-sm-offset-6 ">
+				<br>
+				<br>
+				<div class="tagline1">the portfolio of</div>
+				<br>
+				<div class="tagline2">YISHUANG</div>
+				<div class="tagline2">GENG</div>
+
+				<div class="tagline3a">{</div>
+				<div class="tagline3b"> Coding :
+					<br> Wireless :
+					<br> Localization :
+					<br> Sensor Fusion :
+					<br> Data Analytics :
+					<br> Statistics :
+				</div>
+				<div class="tagline3c">}</div>
+
+			</div>
+
+			<div id="down" class="btn btn-circle highlight">
+				<i class="fa fa-chevron-circle-down fa-4x"></i>
+			</div>
+
+		</div>
+
+	</header>
+
+
+
+
+
+
+
+
+
+
+	<!-- The #about session -->
+	<div id="about" class="container-fluid">
+		<div class="row section-banner">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<div>
+					<span class="line"></span>
+					<span class="section-title">about</span>
+					<span class="line"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
+				<div class="textline1">
+					<p> My name is Yishuang Geng, a self-taught web developer. I'm not an artist but I'm a big fan of photography and I enjoy wandering in the ocean of easthetics. I often feel that web development is the perfect combination of rational and emotional, and that feeling supports me moving on to learning and practicing. Hopefully I find a job and become a full time developer soon! </p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row max text-center splited-aspects"> <!-- 比较好的做法是用一个max class把最大的宽度限制回来 -->
+			<div class="col-sm-4">
+				<p class="section-sub-title"> Code </p>
+				<img src="images/code-optimization-3-512.png" class="icon-about">
+				<p class="textline1"> C++, Java </p>
+				<p class="textline1"> HTML, CSS, BootStrap </p>
+				<p class="textline1"> JavaScript, JQuery </p>
+				<p class="textline1"> Matlab </p>
+				<p class="textline1"> Git </p>
+			</div>
+
+			<div class="col-sm-4">
+				<p class="section-sub-title"> Knowledge </p>
+				<img src="images/wireless-512.png" class="icon-about">				
+				<p class="textline1"> Wireless Networking</p>
+				<p class="textline1"> Wireless Communications</p>
+				<p class="textline1"> WLAN, Cellular, Small Cells</p>
+				<p class="textline1"> Radio Channel Modeling </p>				
+				<p class="textline1"> Filtering Techniques </p>
+				<p class="textline1"> Machine Learning </p>		
+				<p class="textline1"> Statistics </p>		
+			</div>
+
+			<div class="col-sm-4">
+				<p class="section-sub-title"> Expertise </p>
+				<img src="images/location-512.png" class="icon-about">
+				<p class="textline1"> Satellite Navigation</p>
+				<p class="textline1"> Indoor Localization</p>
+				<p class="textline1"> RSS Finger Printing</p>
+				<p class="textline1"> Inertial System </p>
+				<p class="textline1"> Hybrid Localization </p>				
+				<p class="textline1"> SLAM </p>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<!-- The #portfolio session -->
+	<div class="container-fluid" id="portfolio">
+		<div class="row section-banner">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<div>
+					<span class="line"></span>
+					<span class="section-title">portfolio</span>
+					<span class="line"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
+				<div class="textline1">
+					<p> The following items are mainly small projects done as daily practices when I'm dabbling along the road to a full stack developer with Free Code Camp (FCC). FFC helped so much that I could not even verbally describe my appreciation. I wish FCC the best! The details of these projects can be accessed by a simple click on the cards. </p>
+					<br>
+					<br>
+				</div>
+			</div>
+		</div>
+
+		<!-- Using JS to load the projects -->
+		<div class="row max" id="theProjects">
+		</div>
+
+		<!--
+		<div class="row max text-center splited-aspects">
+			<div class="col-sm-4">
+				<p class="section-sub-title"> Tribute Website </p>
+				<img src="images/code-optimization-3-512.png" class="card_front">
+				<p class="textline1"> Don't know what to say yet, we have to wait and see... </p>
+			</div>
+
+			<div class="col-sm-4">
+				<p class="section-sub-title"> Personal Portfolio </p>
+				<img src="images/code-optimization-3-512.png" class="icon-folio">
+				<p class="textline1"> Don't know what to say yet, we have to wait and see... </p>
+			</div>
+
+			<div class="col-sm-4">
+				<p class="section-sub-title"> Quote Machine </p>
+				<img src="images/code-optimization-3-512.png" class="icon-folio">
+				<p class="textline1"> Don't know what to say yet, we have to wait and see... </p>
+			</div>
+		</div>
+		-->
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<!-- The #contact session -->
+	<div id="contact" class="container-fluid">
+		<div class="row section-banner">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<div>
+					<span class="line"></span>
+					<span class="section-title about">contact</span>
+					<span class="line"></span>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="row max">
+
+			<div class="col-sm-5 col-sm-offset-1 text-center">
+				<p class="section-sub-title"> Job Hunting </p>
+				<br>
+				<p class="textline1"> I'm currently looking for full-time software engineering position in the US, and I do need VISA sponsorship. To set-up a conversation, please key in your name and email address and send me message. I will get back to you ASAP! </p>
+				<br>
+			</div>
+
+			<div class="col-sm-6 col-sm-offset-1 col-md-4 text-center">
+				<form action="#" method="post">
+					<div class="form-group">
+						<label class="sr-only" for="inputName">Full name</label>
+						<input id="inputName" class="form-control" type="text" placeholder="Yishuang Geng" required />
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="inputMail" >Email Address</label>
+						<input id="inputMail" class="form-control" type="email" placeholder="gengyishuang@mail.com" required />
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="inputMessage">Your Message</label>
+						<textarea id="inputMessage" class="form-control" name="message" cols="30" rows="8" required></textarea>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-default" type="submit" value="Hire me" href="#header">Hire me</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	<!-- The footer -->
+
+	<footer id="footer">
+		<ul>
+			<li class='highlight'>
+                <a class="fa-stack fa-1x" data-toggle="tooltip" title="Email" data-placement="top" href="mailto:gengyishuang@gmail.com">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x blacktext"></i>
+                </a>
+            </li>
+
+			<li class="highlight">			
+				<a class="fa-stack fa-1x" data-toggle="tooltip" title="Facebook" data-placement="top" href="https://www.facebook.com/yishuang.geng" target="_blank">
+					<i class="fa fa-facebook-square fa-stack-2x"></i>
+				</a>
+			</li>
+
+			<li class='highlight'>
+                <a class="fa-stack fa-1x" data-toggle="tooltip" title="FreeCodeCamp" data-placement="top" href="http://www.freecodecamp.com/yisuang1186" target="_blank">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-fire fa-stack-1x blacktext"></i>
+            	</a>
+            </li>
+
+            <li class='highlight'>
+                <a class="fa-stack fa-1x" data-toggle="tooltip" title="Linkedin" data-placement="top" href="https://www.linkedin.com/in/yishuang-geng-45581650" target="_blank">
+                	<i class="fa fa-linkedin-square fa-stack-2x"></i>
+                </a>
+            </li>
+
+            <li class='highlight'>
+                <a class="fa-stack fa-1x" data-toggle="tooltip" title="Twitter" data-placement="top" href="https://twitter.com/" target="_blank">
+                	<i class="fa fa-twitter-square fa-stack-2x"></i>
+                </a>
+            </li>
+
+            <li class='highlight'>
+                <a class="fa-stack fa-1x" data-toggle="tooltip" title="GitHub" data-placement="top" href="https://github.com/yisuang1186" target="_blank">
+                	<i class="fa fa-github-square fa-stack-2x"></i>
+                </a>
+            </li>
+
+            <li class='highlight'>
+                <a class="fa-stack fa-1x" data-toggle="tooltip" title="CodePen" data-placement="top" href="http://codepen.io/yisuang1186/" target="_blank">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-codepen fa-stack-1x blacktext"></i>
+                </a>
+            </li>
+
+		</ul>
+
+		<div class="text-center copyright">
+			<p> <i class="fa fa-copyright"></i> 2016 Yishuang Geng, All rights reserved. </p>
+        </div>
+	</footer>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
